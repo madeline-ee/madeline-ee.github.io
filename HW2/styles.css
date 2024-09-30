@@ -1,0 +1,120 @@
+/* 基本樣式設定 */
+body, html {
+    margin: 0;
+    padding: 0;
+    font-family: Arial, sans-serif;
+    scroll-behavior: smooth; /* 啟用平滑捲動 */
+}
+
+/* 標題 banner */
+.banner {
+    background-color: #008B8B; /* 藍綠色背景 */
+    color: #000; /* 黑色文字 */
+    text-align: center;
+    height: 100px; /* 高度設為 100px */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+/* nav */
+.navbar {
+    background-color: #f0f0f0; /* 淺灰色背景 */
+    height: 50px; /* 高度設為 50px */
+    position: sticky; /* 固定在最上方 */
+    top: 0; /* 固定位置 */
+    z-index: 10;
+    display: flex; /* 使用彈性盒子模型 */
+    justify-content: flex-start; /* 水平靠左 */
+    padding-left: 1px; /* 距離左邊邊界 1px */
+}
+
+.navbar-menu {
+    display: flex; /* 使用彈性盒子模型 */
+    align-items: center; /* 垂直置中 */
+    list-style-type: none; /* 去除列表符號 */
+    margin: 0;
+    padding: 0;
+}
+
+.navbar a {
+    text-decoration: none;
+    color: #aaa; /* 預設灰色 */
+    font-size: 16px;
+    padding: 15px; /* 增加按鈕的上下內邊距 */
+}
+
+/* 「首頁」選項的特別樣式 */
+.home-link {
+    font-size: 20px; /* 字體較大 */
+    font-weight: bold; /* 粗體 */
+    color: #000; /* 深黑色 */
+}
+
+/* 其他選項樣式 */
+.section-link {
+    color: #aaa; /* 灰色 */
+}
+
+.navbar a:hover {
+    color: #333; /* 滑鼠移過變成較深的顏色 */
+    transition: 0.3s;
+}
+
+/* Nav 和第一個 banner 之間的空白 */
+.spacer {
+    height: 50px; /* 高度設為 50px */
+    background-color: #fff; /* 空白背景色 */
+}
+
+/* 第三個 div: content */
+.content {
+    padding: 0;
+}
+
+/* 每個區段的 banner 樣式 */
+.section-banner {
+    background-color: #FF8C00; /* 飽和橘色背景 */
+    height: 100vh; /* 滿版高度 */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    font-size: 24px;
+    color: #fff;
+}
+
+/* 區段內容樣式 */
+.section-content {
+    height: 150vh; /* 設定 150vh 的高度 */
+    display: flex;
+    align-items: flex-start; /* 調整內容對齊方式，向上靠齊 */
+    justify-content: center;
+    background-color: #f5f5f5; /* 更淺的灰色背景 */
+    margin-top: 50px; /* 與區段 banner 間距設為 50px */
+}
+
+/* 灰色方框容器 */
+.container {
+    background-color: #cccccc; /* 更深的灰色背景 */
+    padding: 50px;
+    width: 33.33%; /* 寬度設為畫面三分之一 */
+    text-align: left;
+}
+
+.container h3 {
+    font-size: 24px; /* 與區段標題相同字體大小 */
+    font-weight: bold;
+    margin-bottom: 20px;
+}
+
+.container p {
+    font-size: 16px;
+    margin-top: 10px;
+}
+
+/* 第四個 div: footer */
+footer {
+    height: 50px; /* 高度設為 50px，與 nav 相同 */
+    background-color: #fff; /* 白色背景 */
+}
