@@ -1,0 +1,92 @@
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+}
+
+.banner {
+    height: 150px;
+    background-color: #008080; /* 藍綠色 */
+    color: black;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 24px;
+}
+
+.nav {
+    height: 50px;
+    background-color: #f0f0f0; /* 淺灰色 */
+    position: relative;
+    left: 1px; /* 離視窗最左邊邊界1px */
+}
+
+.nav-item {
+    display: inline-block;
+    padding: 15px;
+    color: gray;
+    text-decoration: none;
+    font-size: 18px;
+}
+
+.nav-item:first-child {
+    font-weight: bold;
+    color: black;
+    font-size: 20px; /* 首頁字較大 */
+}
+
+.nav-item:hover {
+    color: black;
+}
+
+.content {
+    padding-top: 50px; /* nav和第一個banner之間的空白 */
+}
+
+.section {
+    margin: 50px 0; /* 每個區段內容和下一個區段banner之間插入height=50px的空白 */
+}
+
+.section-banner {
+    height: 100vh;
+    background-color: rgba(255, 165, 0, 0.2); /* 低飽和的橘色 */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 36px;
+}
+
+.container {
+    height: 150vh;
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    margin-top: 30px; /* 灰色方塊與橘色banner之間的距離 */
+}
+
+.content-box {
+    width: 33%;
+    background-color: lightgray; /* 灰色方塊 */
+    padding: 20px;
+}
+
+.content-title {
+    font-size: 24px;
+    font-weight: bold;
+    margin: 0;
+}
+
+.footer {
+    height: 50px;
+    background-color: white;
+}
+
+/* 響應式設計 */
+@media (max-width: 768px) {
+    .content-box {
+        width: 90%;
+    }
+
+    .nav-item {
+        font-size: 16px; /* 調整字體大小 */
+    }
+}
