@@ -1,37 +1,41 @@
-// 平滑捲動功能
-document.querySelectorAll('.navbar a').forEach(anchor => {
-    anchor.addEventListener('click', function(e) {
-        e.preventDefault(); // 防止預設行為
-        const targetID = this.getAttribute('href').substring(1); // 獲取目標ID
-        const targetElement = document.getElementById(targetID); // 獲取目標元素
+// Smooth Scrolling 功能
+document.querySelectorAll('.nav-item').forEach(anchor => {
+    anchor.addEventListener('click', function (e) {
+        e.preventDefault();
+        const targetId = this.getAttribute('href').substring(1);
+        const targetElement = document.getElementById(targetId);
 
-        if (targetElement) {
-            const targetPosition = targetElement.getBoundingClientRect().top + window.scrollY; // 目標位置
-            const startPosition = window.scrollY; // 當前捲動位置
-            const distance = targetPosition - startPosition; // 移動距離
-            const duration = 2000; // 滾動持續時間（毫秒）
-            let startTime = null;
-
-            // 滾動動畫
-            function animation(currentTime) {
-                if (startTime === null) startTime = currentTime; // 設定開始時間
-                const timeElapsed = currentTime - startTime; // 計算經過時間
-                const progress = Math.min(timeElapsed / duration, 1); // 確保不超過 1
-
-                window.scrollTo(0, startPosition + distance * easeInOutQuad(progress)); // 根據進度捲動
-
-                if (timeElapsed < duration) requestAnimationFrame(animation); // 進行下一幀動畫
-            }
-
-            requestAnimationFrame(animation); // 啟動動畫
-        } else {
-            // 若點擊首頁，直接跳到頁面最上方
-            window.scrollTo({ top: 0, behavior: 'smooth' });
-        }
+        // 使用requestAnimationFrame來實現更慢的滾動
+        smoothScroll(targetElement, 1500); // 滾動時間設定為1500毫秒，即1.5秒
     });
 });
 
-// 緩動函數
-function easeInOutQuad(t) {
-    return t < 0.5 ? 2 * t * t : -1 + (4 - 2 * t) * t; // 緩動公式
+// 平滑滾動函數，設置過渡效果時間
+function smoothScroll(target, duration) {
+    const targetPosition = target.getBoundingClientRect().top; // 目標元素距離視窗頂部的距離
+    const startPosition = window.pageYOffset; // 當前滾動條位置
+    let startTime = null;
+
+    function animation(currentTime) {
+        if (startTime === null) startTime = currentTime;
+        const timeElapsed = currentTime - startTime;
+        const run = ease(timeElapsed, startPosition, targetPosition, duration);
+        window.scrollTo(0, run);
+        if (timeElapsed < duration) requestAnimationFrame(animation);
+    }
+
+    function ease(t, b, c, d) { // 緩動函數
+        t /= d / 2;
+        if (t < 1) return c / 2 * t * t + b;
+        t--;
+        return -c / 2 * (t * (t - 2) - 1) + b;
+    }
+
+    requestAnimationFrame(animation);
 }
+
+// 按下「首頁」按鈕，回到視窗最上方
+document.querySelector('.home').addEventListener('click', function (e) {
+    e.preventDefault();
+    smoothScroll(document.body, 1500); // 設定滑動回到頂部
+});

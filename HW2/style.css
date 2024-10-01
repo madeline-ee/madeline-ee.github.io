@@ -1,0 +1,100 @@
+/* 基本設定 */
+body, html {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Arial, sans-serif;
+}
+
+/* Banner 樣式 */
+.banner {
+    height: 150px;
+    background-color: teal; /* 藍綠色 */
+    color: black;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: sticky; /* 讓Banner保持在頁面最上方 */
+    top: 0;
+    z-index: 1000; /* 確保Banner位於最上層 */
+}
+
+.banner h1 {
+    margin: 0;
+}
+
+/* Nav 樣式 */
+.nav {
+    height: 50px;
+    background-color: #f0f0f0; /* 淺灰色 */
+    display: flex;
+    justify-content: start;
+    align-items: center;
+    padding-left: 1px;
+    position: sticky; /* 讓Nav隨捲動固定 */
+    top: 150px; /* Nav緊跟在Banner之下 */
+    z-index: 999; /* 保持在Banner之下 */
+}
+
+.nav-item {
+    text-decoration: none;
+    margin: 0 15px;
+    padding: 0;
+    line-height: 50px;
+    font-size: 16px;
+    color: #666666;
+}
+
+.home {
+    font-size: 18px;
+    font-weight: bold;
+    color: #000000; /* 深黑色 */
+}
+
+.nav-item:hover {
+    color: black;
+}
+
+/* Section 樣式 */
+.section-banner {
+    height: 100vh; /* 滿版高度 */
+    background-color: orange; /* 橘色 */
+    color: white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 24px;
+    font-weight: bold;
+}
+
+.section-content {
+    background-color: #e0e0e0; /* 灰色 */
+    height: 150vh; /* 高度150視窗 */
+    display: flex;
+    justify-content: center;
+    align-items: flex-start; /* 調整成靠上對齊 */
+    padding-top: 30px; /* 與上方滿版banner的距離 */
+}
+
+.inner-content {
+    width: 33.33%; /* 內容區塊佔畫面1/3 */
+    background-color: #cccccc; /* 更淺灰色 */
+    padding: 20px;
+    border-radius: 5px;
+}
+
+.inner-content h2 {
+    margin-top: 0;
+}
+
+/* 分隔區域樣式 */
+.spacer {
+    height: 50px;
+    background-color: white; /* 白色分隔區域 */
+}
+
+/* Footer 樣式 */
+.footer {
+    height: 50px;
+    background-color: white;
+}

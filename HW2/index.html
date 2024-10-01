@@ -1,70 +1,65 @@
 <!DOCTYPE html>
-<html lang="zh-Hant">
+<html lang="zh-TW">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="styles.css">
-    <title>響應式網站</title>
+    <title>四個DIV結構網頁</title>
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
+    <!-- Banner 區域 -->
     <div class="banner">
         <h1>這裡是Banner</h1>
     </div>
 
-    <nav class="navbar">
-        <ul class="navbar-menu">
-            <li><a href="#home" class="home-link">首頁</a></li>
-            <li><a href="#section1" class="section-link">區段1</a></li>
-            <li><a href="#section2" class="section-link">區段2</a></li>
-            <li><a href="#section3" class="section-link">區段3</a></li>
-        </ul>
-    </nav>
+    <!-- Navigation 區域 -->
+    <div class="nav">
+        <a href="#home" class="nav-item home">首頁</a>
+        <a href="#section1" class="nav-item">區段1</a>
+        <a href="#section2" class="nav-item">區段2</a>
+        <a href="#section3" class="nav-item">區段3</a>
+    </div>
+    <div class="spacer"></div> <!-- Nav下方的空白區域 -->
 
-    <div class="spacer"></div> 
-
-    <div class="content">
+    <!-- 內容區域 -->
+    <div id="home" class="content">
         <section id="section1">
-            <div class="section-banner">
-                <h2>區段1</h2>
-            </div>
+            <div class="section-banner">區段1</div>
             <div class="section-content">
-                <div class="container">
-                    <h3>區段1內容</h3>
+                <div class="inner-content">
+                    <h2>區段1內容</h2>
                     <p>這是區段1的內容....</p>
                 </div>
             </div>
-            <div class="spacer"></div>
         </section>
+        <div class="spacer"></div> <!-- Section 1與Section 2之間的空白區域 -->
 
         <section id="section2">
-            <div class="section-banner">
-                <h2>區段2</h2>
-            </div>
+            <div class="section-banner">區段2</div>
             <div class="section-content">
-                <div class="container">
-                    <h3>區段2內容</h3>
+                <div class="inner-content">
+                    <h2>區段2內容</h2>
                     <p>這是區段2的內容....</p>
                 </div>
             </div>
-            <div class="spacer"></div>
         </section>
+        <div class="spacer"></div> <!-- Section 2與Section 3之間的空白區域 -->
 
         <section id="section3">
-            <div class="section-banner">
-                <h2>區段3</h2>
-            </div>
+            <div class="section-banner">區段3</div>
             <div class="section-content">
-                <div class="container">
-                    <h3>區段3內容</h3>
+                <div class="inner-content">
+                    <h2>區段3內容</h2>
                     <p>這是區段3的內容....</p>
                 </div>
             </div>
-            <div class="spacer"></div>
         </section>
     </div>
 
-    <footer></footer>
+    <!-- Footer 區域 -->
+    <div class="footer"></div>
 
+    <!-- JavaScript -->
     <script src="script.js"></script>
 </body>
 </html>
