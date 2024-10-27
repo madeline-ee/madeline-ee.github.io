@@ -1,0 +1,103 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <title>Horizontal Scroll with Vertical Scroll Control</title>
+
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            overflow-x: hidden;
+            /* 禁止水平滾動條 */
+        }
+
+        .sticky-top {
+            position: sticky;
+            top: 0;
+            z-index: 10;
+            background-color: white;
+        }
+
+        #horizontal {
+            display: flex;
+            /* 使用 flex 排列圖片 */
+            height: 100vh;
+            width: 500vw;
+            /* 設定為 5 倍視窗寬度 */
+            position: relative;
+            /* 讓 JS 操控水平位移 */
+            transition: left 0.1s ease-out;
+        }
+
+        #horizontal img {
+            height: 100vh;
+            width: auto;
+            object-fit: cover;
+            /* 避免圖片變形 */
+            flex-shrink: 0;
+        }
+
+        #horizontal>div {
+            min-width: 50vw;
+            /* 每個 div 的寬度為半個視窗寬 */
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background-color: lightgray;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div
+        style="height:100vh; background:lightgray; display: flex; justify-content: center; align-items: center; text-align: center;">
+        <div>
+            <h1>一窺繁華都市中的鏡花水月</h1>
+            <p>法鼓山農禪寺</p>
+        </div>
+    </div>
+
+    <div style="height:1000vh;">
+        <div class="sticky-top">
+            <div id="horizontal">
+                <img src="pc1.jpeg" />
+                <img src="pc2-1.jpeg" />
+                <img src="pc3.jpeg" />
+                <img src="pc4.jpeg" />
+                <img src="pc5.jpeg" />
+            </div>
+        </div>
+    </div>
+
+    <div style="height:100vh; background:lightgray;"></div>
+
+    <!-- jQuery CDN -->
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+
+    <script>
+        $(document).ready(function () {
+            $(window).on('scroll', function () {
+                const totalScrollableHeight = $('body').height() - window.innerHeight; // 可垂直滾動距離
+                const maxHorizontalScroll = $('#horizontal').width() - window.innerWidth; // 可水平滾動距離
+                const scrollTop = $(this).scrollTop(); // 當前垂直滾動位置
+
+                // 限制 newLeft 的值，避免橫向捲動超出範圍
+                const newLeft = Math.min(0, Math.max(-maxHorizontalScroll, -maxHorizontalScroll * (scrollTop / totalScrollableHeight)));
+
+                $('#horizontal').css('left', `${newLeft}px`); // 更新 left 值
+            });
+        });
+
+    </script>
+
+</body>
+
+</html>
