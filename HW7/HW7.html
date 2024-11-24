@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            min-height: 300vh;
+            background: #fafafa;
+            overflow-x: hidden;
+        }
+
+        .sketch {
+            position: fixed;
+            width: 150px;
+            height: 150px;
+            filter: drop-shadow(2px 4px 6px rgba(0,0,0,0.1));
+            transform-origin: center center;
+        }
+
+        #sketch1 {
+            top: 15vh;
+            left: 20%;
+        }
+
+        #sketch2 {
+            top: 35vh;
+            left: 65%;
+        }
+
+        #sketch3 {
+            top: 60vh;
+            left: 25%;
+        }
+
+        #sketch4 {
+            top: 70vh;
+            left: 70%;
+        }
+    </style>
+</head>
+<body>
+    <div class="sketch" id="sketch1">
+        <svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
+            <path d="M20,50 Q35,20 50,50 Q65,80 80,50" 
+                  fill="none" 
+                  stroke="#FF6B6B" 
+                  stroke-width="3"
+                  style="stroke-dasharray: 2,2"/>
+            <circle cx="50" cy="50" r="25" 
+                    fill="none" 
+                    stroke="#FF6B6B" 
+                    stroke-width="3"
+                    style="stroke-linecap: round"/>
+        </svg>
+    </div>
+
+    <div class="sketch" id="sketch2">
+        <svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
+            <path d="M30,30 L70,30 L70,70 L30,70 Z" 
+                  fill="none" 
+                  stroke="#4ECDC4" 
+                  stroke-width="3"
+                  style="stroke-dasharray: 4,4"/>
+            <circle cx="50" cy="50" r="15" 
+                    fill="none" 
+                    stroke="#4ECDC4" 
+                    stroke-width="2"/>
+        </svg>
+    </div>
+
+    <div class="sketch" id="sketch3">
+        <svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
+            <path d="M20,50 L40,20 L60,20 L80,50 L60,80 L40,80 Z" 
+                  fill="none" 
+                  stroke="#45B7D1" 
+                  stroke-width="3"
+                  style="stroke-linejoin: round"/>
+            <circle cx="50" cy="50" r="20" 
+                    fill="none" 
+                    stroke="#45B7D1" 
+                    stroke-width="2"/>
+        </svg>
+    </div>
+
+    <div class="sketch" id="sketch4">
+        <svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
+            <path d="M25,25 Q50,20 75,25 Q80,50 75,75 Q50,80 25,75 Q20,50 25,25" 
+                  fill="none" 
+                  stroke="#96CEB4" 
+                  stroke-width="3"
+                  style="stroke-dasharray: 5,2"/>
+            <circle cx="50" cy="50" r="18" 
+                    fill="none" 
+                    stroke="#96CEB4" 
+                    stroke-width="2"/>
+        </svg>
+    </div>
+
+    <script>
+        const sketches = document.querySelectorAll('.sketch');
+        const speeds = [0.3, 0.5, 0.7, 0.9]; // 增加速度差異
+
+        // 儲存每個元素的初始位置
+        const initialPositions = Array.from(sketches).map(sketch => {
+            const rect = sketch.getBoundingClientRect();
+            return rect.top;
+        });
+
+        window.addEventListener('scroll', () => {
+            const scrolled = window.pageYOffset;
+            
+            sketches.forEach((sketch, index) => {
+                // 計算新的位置
+                const displacement = scrolled * speeds[index];
+                const initialPos = initialPositions[index];
+                
+                // 應用變換
+                sketch.style.transform = `translateY(${-displacement}px)`;
+            });
+        });
+    </script>
+</body>
+</html>
