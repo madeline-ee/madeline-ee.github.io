@@ -1,0 +1,249 @@
+/* Basic reset and styling */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: "Noto Serif TC", sans-serif;
+  overflow-x: hidden;
+  background-color: #f7ede2;
+}
+
+/* Section styles */
+.section {
+  width: 100vw;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 2em;
+  color: #393141;
+}
+
+/* opening */
+.opening {
+  height: 100vh;
+  /* 確保高度為視窗高度 */
+  display: flex;
+  justify-content: center;
+  /* 讓內容水平居中 */
+  align-items: center;
+  /* 讓內容垂直居中 */
+  text-align: center;
+  /* 讓文字居中 */
+}
+
+.opening p {
+  font-size: 2em;
+  font-weight: bold;
+  opacity: 0;
+  /* 開始時文字是透明的 */
+  transform: translateY(50px);
+  /* 開始時向下偏移 */
+  animation: floatIn 2s ease-out forwards;
+  /* 文字浮出的動畫 */
+}
+
+/* 定義動畫 */
+@keyframes floatIn {
+  0% {
+    opacity: 0;
+    transform: translateY(50px);
+  }
+
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* introduction */
+.introduction {
+  height: 100vh;
+  font-size: 1.8em;
+  width: 33%;
+  margin: 0 auto;
+}
+
+/* image */
+.image-wrapper {
+  height: 100vh;
+  /* 父容器全屏高度 */
+  display: flex;
+  /* 使用 Flexbox 布局 */
+  flex-direction: column;
+  /* 元素垂直排列 */
+  justify-content: center;
+  /* 水平和垂直置中 */
+  align-items: center;
+  /* 水平和垂直置中 */
+}
+
+.image-text {
+  font-size: 1.8em;
+  /* 調整文字大小 */
+  margin-bottom: 20px;
+  /* 與圖片間距 */
+  text-align: center;
+  /* 文字居中 */
+}
+
+.image {
+  height: 60vh;
+  /* 圖片區塊高度 */
+  width: 70%;
+  /* 圖片區塊寬度 */
+  background-size: cover;
+  /* 背景圖片覆蓋 */
+  background-position: center;
+  /* 背景圖片置中 */
+  background-image: url("https://raw.githubusercontent.com/madeline-ee/madeline-ee.github.io/main/service_design_final/process%20image.png");
+}
+
+
+/* empathize + define */
+/* Ensure the row takes up 150vh for scrolling */
+.row {
+  display: flex;
+  flex-wrap: wrap;
+  height: 150vh; /* Set the row to be tall enough to scroll */
+}
+
+/* Sticky image setup */
+.sticky-container {
+  position: relative;
+  width: 50%; /* Take up half the width */
+  height: 150vh; /* Full viewport height */
+}
+
+.sticky-image {
+  position: sticky;
+  top: 0; /* Keep it at the top when scrolling */
+  width: 100%;
+  height: 100vh; /* Make it take up the full height */
+  background-image: url('https://github.com/madeline-ee/madeline-ee.github.io/blob/main/service_design_final/note.png?raw=true');
+  background-size: cover;
+  background-position: center;
+  border-radius: 20px;
+}
+
+/* Text container setup */
+.text-container {
+  padding: 20px;
+  width: 50%; /* Take up the other half of the screen */
+  height: 150vh; /* This should allow the text to scroll */
+  margin-top: 30vh; /* Adjust this value to move the text down */
+}
+
+/* Optional: Adjust text size for readability */
+.text-container p {
+  font-size: 1.8rem;
+  margin-bottom: 60px; /* Add space between paragraphs */
+}
+
+.text-container p:first-child {
+  font-size: 2.5rem; /* Increase font size */
+  font-weight: bold; /* Make the text bold */
+  text-align: center; /* Center the text */
+  margin-bottom: 60px; /* Space after the heading */
+}
+
+
+
+
+
+/* prototype */
+.container {
+  display: grid;
+  grid-template-columns: repeat(3, 300px);
+  /* 每列300px */
+  gap: 180px;
+  justify-content: center;
+  align-content: center;
+  width: 100%;
+  height: 100%;
+  margin-top: 50vh;
+}
+
+.flip-box {
+  width: 380px;
+  height: 400px;
+  background-color: transparent;
+  cursor: pointer;
+  perspective: 1000px;
+  border-radius: 20px;
+  /* 這裡設定圓角 */
+}
+
+.flip-box-inner {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  transition: transform 1s;
+  transform-style: preserve-3d;
+  border-radius: 20px;
+  /* 這裡設定圓角 */
+}
+
+.flip-box:hover .flip-box-inner {
+  transform: rotateY(180deg);
+}
+
+.front1,
+.front2,
+.front3,
+.back1,
+.back2,
+.back3 {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  backface-visibility: hidden;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: left;
+  border-radius: 20px;
+  /* 這裡設定圓角 */
+}
+
+.front1 {
+  background-image: url("https://github.com/madeline-ee/madeline-ee.github.io/blob/main/service_design_final/phone.png?raw=true");
+  background-size: cover;
+}
+
+.front2 {
+  background-image: url("https://github.com/madeline-ee/madeline-ee.github.io/blob/main/service_design_final/castle.png?raw=true");
+  background-size: cover;
+}
+
+.front3 {
+  background-image: url("https://github.com/madeline-ee/madeline-ee.github.io/blob/main/service_design_final/plane.png?raw=true");
+  background-size: cover;
+}
+
+.back1,
+.back2,
+.back3 {
+  background-color: #e29578;
+  transform: rotateY(180deg);
+}
+
+.back1 p,
+.back2 p,
+.back3 p {
+  font-size: 1.2em;
+  color: white;
+  margin: 0;
+  padding: 10px;
+}
+
+
+/* conclusion */
+.conclusion {
+  height: 100vh;
+  font-size: 1.em;
+  width: 33%;
+  margin: 0 auto;
+}
